@@ -29,7 +29,7 @@ scrape_configs:
         labels:
           alias: linux-node2
 ```
-关于以上配置文件的配置说明[请看此处]https://github.com/lcePolarBear/Ops_Automation_Note/blob/master/Prometheus/如何配置%20Prometheus.yml%20文件.md)
+关于以上配置文件的配置说明[请看此处](https://github.com/lcePolarBear/Ops_Automation_Note/blob/master/Prometheus/如何配置%20Prometheus.yml%20文件.md)
 
 直接联动 yml 配置文件启动二进制程序
 ```
