@@ -5,7 +5,7 @@
 
 解压压缩包
 ```
-tar xvfz prometheus-2.2.1.linux-amd64.tar.gz
+tar xvfz prometheus-x.x.x.linux-amd64.tar.gz
 ```
 可以看到文件列表有
 * prometheus -> 二进制启动项
