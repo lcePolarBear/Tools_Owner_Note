@@ -1,6 +1,7 @@
-运行系统：CentOS:7
+## 安装 Prometheus （运行系统：CentOS:7）
 
-## 使用安装包来运行
+__使用安装包来运行__
+
 下载安装包 [下载地址](https://prometheus.io/download/)
 
 解压压缩包
@@ -37,7 +38,7 @@ scrape_configs:
 ```
 访问web界面：IP地址:9090
 
-## 使用 Docker 来运行
+__使用 Docker 来运行__
 * 获取并启动 prometheus：
 ```
 docker run  -d \

@@ -1,5 +1,6 @@
 ## node_exporter 是一个可以将 CPU 内存等数据提供给 Prometheus 来展示的部件
-## 用安装包的方式启动
+__用安装包的方式启动__
+
 [安装包下载地址](https://prometheus.io/download/)
 
 解压
@@ -11,7 +12,7 @@ tar xvfz node_exporter-x.x.x.linux-amd64
 ./node_exporter
 ```
 
-## 使用 Docker 的方式启动
+__使用 Docker 的方式启动__
 ```
 docker run -d \
   --net="host" \
@@ -21,7 +22,7 @@ docker run -d \
   --path.rootfs /host
   ````
 
-## 启动后需要在 Prometheus.yml 下配置才能在 Prometheus 中生效
+__启动后需要在 Prometheus.yml 下配置才能在 Prometheus 中生效__
 ```
 scrape_configs:
 
