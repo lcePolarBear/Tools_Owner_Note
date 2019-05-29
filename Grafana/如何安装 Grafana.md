@@ -25,3 +25,19 @@ sudo systemctl enable grafana-server.service
     * [配置文件的说明](https://grafana.com/docs/installation/configuration/)
 
 __Docker 安装__
+
+[官方 Grafana for Dcoker 说明指南](https://grafana.com/docs/installation/docker/)
+
+先新建一个文件夹并赋予 777 的权限
+```
+chmod 777 -R /app/yw/grafana-storage
+```
+启动 docker
+```
+  docker run \
+  -d \
+  -p 3000:3000 \
+  --name=grafana \
+  -v /app/yw/grafana-storage:/var/lib/grafana \
+  grafana/grafana
+```
