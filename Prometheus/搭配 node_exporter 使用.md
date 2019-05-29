@@ -27,5 +27,5 @@ scrape_configs:
 
   - job_name: 'node'
     static_configs:
-    - targets: ['127.0.0.1:9100']
+      - targets: ['127.0.0.1:9100']
 ```

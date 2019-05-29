@@ -40,6 +40,9 @@ scrape_configs:
 ## 使用 Docker 来运行
 * 获取并启动 prometheus：
 ```
-docker run -p 9090:9090 prom/prometheus
+docker run  -d \
+  -p 9090:9090 \
+  -v /app/yw/prometheus.yml:/etc/prometheus/prometheus.yml  \
+  quay.io/prometheus/prometheus
 ```
 * 通过 IP地址:9090 来访问容器内的 Prometheus 服务
