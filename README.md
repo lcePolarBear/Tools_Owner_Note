@@ -14,3 +14,6 @@ __Grafana__
 * [Grafana 联动 Pronetheus](https://github.com/lcePolarBear/Ops_Automation_Note/blob/master/Grafana/Grafana%20联动%20Prometheus.md)
 
 __Ansible__
+
+__Jenkins__
+* [Jenkins 官方文档](https://jenkins.io/zh/doc/)以及[Docker 部署方式](https://jenkins.io/zh/doc/book/installing/)
