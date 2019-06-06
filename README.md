@@ -17,3 +17,6 @@ __Ansible__
 
 __Jenkins__
 * [Jenkins 官方文档](https://jenkins.io/zh/doc/)以及[Docker 部署方式](https://jenkins.io/zh/doc/book/installing/)
+
+__FRP__
+* [FRP 使用说明](https://github.com/fatedier/frp/blob/master/README_zh.md)
