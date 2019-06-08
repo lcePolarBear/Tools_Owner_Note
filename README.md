@@ -20,3 +20,8 @@ __Jenkins__
 
 __FRP__
 * [FRP 使用说明](https://github.com/fatedier/frp/blob/master/README_zh.md)
+
+__ESXI__
+* [安装参考文档](https://i4t.com/2773.html)
+* [安装 EXSI 遇到No Network Adapters的解决方案](https://www.dyxmq.cn/windows/software/vsphere-esxi-no-network-adapters.html)
+* 安装完后用 Chrome 上传镜像文件不然会因为 ssl 证书问题无法上传
