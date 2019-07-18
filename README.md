@@ -20,7 +20,7 @@ __Jenkins__
 
 __FRP__
 * [FRP 使用说明](https://github.com/fatedier/frp/blob/master/README_zh.md)
-* [使用 FRP 映射 Oracle 1521 端口]()
+* [使用 FRP 映射 Oracle 1521 端口](https://github.com/lcePolarBear/Ops_Automation_Note/blob/master/FRP/Oracle%201521端口映映射.md)
 
 __ESXI__
 * [安装参考文档](https://i4t.com/2773.html)
