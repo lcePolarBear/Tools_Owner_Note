@@ -1,0 +1,11 @@
+groups:
+- name: general.rules
+  rules:
+  - alert: InstanceDown
+    expr: up == 0
+    for: 2m
+    labels:
+      severity: error
+    annotations:
+      summary: "Instance {{ $labels.instance }} 停止工作"
+      description: "{{ $labels.instance }}: job {{ $labels.job }} 已经停止5分钟以上."
