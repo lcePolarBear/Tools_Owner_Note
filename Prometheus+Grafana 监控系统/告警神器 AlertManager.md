@@ -50,6 +50,7 @@ receivers:
 ```
 检查配置文件
 `./amtool check-config alertmanager.yml`
+
 运行 alertmanager
 `./alertmanager --config.file=alertmanager.yml`
 
@@ -113,3 +114,6 @@ receivers:
   email_configs:
   - to: 'zhenliang369@163.com'
 ```
+
+## 告警收敛
+### 分组
