@@ -26,3 +26,4 @@ __ESXI__
 * [安装参考文档](https://i4t.com/2773.html)
 * [安装 EXSI 遇到No Network Adapters的解决方案](https://www.dyxmq.cn/windows/software/vsphere-esxi-no-network-adapters.html)
 * 安装完后用 Chrome 上传镜像文件不然会因为 ssl 证书问题无法上传
+* [使用 frp 代理 esxi 使其可以通过外网访问](https://blog.csdn.net/weixin_42318691/article/details/108396640)
