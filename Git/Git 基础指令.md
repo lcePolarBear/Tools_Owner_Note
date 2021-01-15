@@ -56,3 +56,7 @@ git init
     ```
     git reset HEAD file.txt
     ```
+* 如果因为 GitHub 仓库的 .git 文件过大导致 clone 失败，可以只拉取最近一次提交后的内容
+    ```
+    git clone --depth 1 https://github.com/lcePolarBear/xxx.git
+    ```
