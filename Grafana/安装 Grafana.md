@@ -18,6 +18,7 @@ __二进制安装__
     [Install]
     WantedBy=multi-user.target
     ```
+- 启动 Grafana 后访问本地 3000 端口即可访问页面
 
 __Docker 安装__
 > [官方 Grafana for Dcoker 说明指南](https://grafana.com/docs/installation/docker/)

@@ -7,7 +7,7 @@ __Prometheus__
 - [安装 Prometheus](https://github.com/lcePolarBear/Ops_Automation_Note/blob/master/Prometheus/%E5%AE%89%E8%A3%85%20Prometheus.md)
 - [配置 Prometheus.yml](https://github.com/lcePolarBear/Ops_Automation_Note/blob/master/Prometheus/如何配置%20Prometheus.yml%20文件.md)
 - [使用 Prometheus 监控多台服务器](https://github.com/lcePolarBear/Ops_Automation_Note/blob/master/Prometheus/%E4%BD%BF%E7%94%A8%20Prometheus%20%E7%9B%91%E6%8E%A7%E5%A4%9A%E5%8F%B0%E6%9C%8D%E5%8A%A1%E5%99%A8.md)
-- [使用 Prometheus 监控 kubernetes]()
+- [使用 Prometheus 监控 kubernetes](https://github.com/lcePolarBear/Ops_Automation_Note/blob/master/Prometheus/%E4%BD%BF%E7%94%A8%20Prometheus%20%E7%9B%91%E6%8E%A7%20kubernetes.md)
 
 __Grafana__
 - [Grafana 官方文档](https://grafana.com/docs/)
