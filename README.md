@@ -17,6 +17,8 @@ __Grafana__
 - [Grafana 接入 Pronetheus](https://github.com/lcePolarBear/Ops_Automation_Note/blob/master/Grafana/Grafana%20%E6%8E%A5%E5%85%A5%20Prometheus.md)
 
 __Ansible__
+- [Ansible 的安装与配置](https://github.com/lcePolarBear/Ops_Automation_Note/blob/master/Ansible/Ansible%20%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE.md)
+- [Ansible ad-hoc 模式的使用](https://github.com/lcePolarBear/Ops_Automation_Note/blob/master/Ansible/Ansible%20ad-hoc%20%E6%A8%A1%E5%BC%8F%E7%9A%84%E4%BD%BF%E7%94%A8.md)
 - 最佳实践
     - [使用 Ansible 批量部署 node_exporter]()
 
