@@ -1,4 +1,4 @@
-## 使用 Prometheus 监控多台服务器
+## 使用 node_exporter 监控服务器状态
 
 __在被监控端的服务器部署 node_exporter__
 - 获取[二进制安装包](hhttps://github.com/prometheus/node_exporter/releases/download/v1.0.1/node_exporter-1.0.1.linux-amd64.tar.gz)
