@@ -28,10 +28,11 @@ __Jenkins__
 __FRP__
 - [FRP 使用说明](https://github.com/fatedier/frp/blob/master/README_zh.md)
 - [使用 FRP 映射 Oracle 1521 端口](https://github.com/lcePolarBear/Ops_Automation_Note/blob/master/FRP/Oracle%201521端口映映射.md)
+- [安全地暴露内网服务](https://gofrp.org/docs/examples/stcp/)
 
 __ESXI__
 - [安装参考文档](https://i4t.com/2773.html)
 - [安装 EXSI 6.5 遇到 No Network Adapters 的解决方案](https://www.dyxmq.cn/windows/software/vsphere-esxi-no-network-adapters.html)
 - 安装完后用 Chrome 上传镜像文件不然会因为 ssl 证书问题无法上传
-- [修改默认的主机名后重新生成 https 证书](https://docs.vmware.com/cn/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-EA0587C7-5151-40B4-88F0-C341E6B1F8D0.html)
+- [使用 mkcert 工具为 ESXI6.7 主机 https 生成安全访问证书](https://blog.csdn.net/kadwf123/article/details/108314038)
 - [使用 frp 代理 esxi 使其可以通过外网访问](https://blog.csdn.net/weixin_42318691/article/details/108396640)
