@@ -7,14 +7,14 @@ __二进制安装__
 - 创建 service 文件启动
     ```
     [Unit]
-    Description=prometheus
+    Description=grafana
 
     [Service]
-    ExecStart=/opt/monitor/prometheus/prometheus --config.file=/opt/monitor/prometheus/prometheus.yml
+    ExecStart=/opt/monitor/grafana/bin/grafana-server -homepath=/opt/monitor/grafana
     ExecReload=/bin/kill -HUP $MAINPID
     KillMode=process
     Restart=on-failure
-    
+
     [Install]
     WantedBy=multi-user.target
     ```
