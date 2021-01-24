@@ -34,5 +34,6 @@ __ESXI__
 - [安装参考文档](https://i4t.com/2773.html)
 - [安装 EXSI 6.5 遇到 No Network Adapters 的解决方案](https://www.dyxmq.cn/windows/software/vsphere-esxi-no-network-adapters.html)
 - 安装完后用 Chrome 上传镜像文件不然会因为 ssl 证书问题无法上传
-- [使用 mkcert 工具为 ESXI6.7 主机 https 生成安全访问证书](https://blog.csdn.net/kadwf123/article/details/108314038)
+- [保持在时间同步的情况下，为 ESXi 生成新的自签名证书](https://docs.vmware.com/cn/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-EA0587C7-5151-40B4-88F0-C341E6B1F8D0.html)
+    - [使用 mkcert 工具为 ESXI6.7 主机 https 生成安全访问证书](https://blog.csdn.net/kadwf123/article/details/108314038)
 - [使用 frp 代理 esxi 使其可以通过外网访问](https://blog.csdn.net/weixin_42318691/article/details/108396640)
