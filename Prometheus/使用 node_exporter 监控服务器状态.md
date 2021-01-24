@@ -26,7 +26,7 @@ __在 Prometheus.yml 下创建采集 node_exporter 的 job__
 ```
 - 检查配置文件格式是否正常
     ```
-    ./promtool check ./prometheus.yml
+    ./promtool check config ./prometheus.yml
     ```
 - 使 prometheus 重新读取配置文件而无需重启
     ```
