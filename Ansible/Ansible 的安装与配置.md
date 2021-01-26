@@ -27,37 +27,64 @@ __查看配置文件 /etc/ansible/ansible.cfg__
     - 私钥 key
 
 __主机清单 /etc/ansible/hosts__
-- 未分组的主机
-    ```
-    # Ex 1: Ungrouped hosts, specify before any group headers.
-
-    ## green.example.com
-    ## blue.example.com
-    ## 192.168.100.1
-    ## 192.168.100.10
-    ```
-- 属于 webservers 组主机集合
-    ```
-    # Ex 2: A collection of hosts belonging to the 'webservers' group
-
-    ## [webservers]
-    ## alpha.example.org
-    ## beta.example.org
-    ## 192.168.1.100
-    ## 192.168.1.110
-    ```
-- 属于 dbservers 组主机集合
-    ```
-    # Ex 3: A collection of database servers in the 'dbservers' group
-
-    ## [dbservers]
-    ##
-    ## db01.intranet.mydomain.net
-    ## db02.intranet.mydomain.net
-    ## 10.25.1.56
-    ## 10.25.1.57
-    ```
-变量
+- 主机和组
+    - 未分组的主机
+        ```
+        green.example.com
+        blue.example.com
+        192.168.100.1
+        192.168.100.10
+        ```
+    - 属于 webservers 组主机集合
+        ```
+        [webservers]
+        alpha.example.org
+        beta.example.org
+        192.168.1.100
+        192.168.1.110
+        ```
+    - 属于 dbservers 组主机集合
+        ```
+        [dbservers]
+        db01.intranet.mydomain.net
+        db02.intranet.mydomain.net
+        10.25.1.56
+        10.25.1.57
+        ```
 - 主机变量
+    - 主机变量格式
+        ```
+        [webservers]
+        host1 http_port=80 maxRequestsPerChild=808
+        host2 http_port=8080 maxRequestsPerChild=909 
+        ```
 - 组变量
+    - 变量也可以应用于整个主机组
+        ```
+        [webservers]
+        host1
+        host2
+
+        [webservers:vars]
+        ntp_server=ntp.example.com
+        proxy=proxy.example.com
+        ```
 - 分离主机和组的变量到特定文件
+    - Ansible 中的首选做法是不将变量存储在 Inventory 中，除了将变量直接存储在 Inventory 文件之外，主机和组变量还可以存储在相对于 Inventory 文件的单个文件中，采用 yaml 格式
+    - vi /etc/ansible/group_vars/webservers.yml
+        ```
+        work_dir: /data/nginx
+        ```
+    - vi /etc/ansible/host_vars/192.168.1.10.yml
+        ```
+        nginx_port: 80
+        ```
+- 主机清单常用参数
+    - `ansible_ssh_host` : 主机名或 IP 地址
+    - `ansible_ssh_port` : SSH 端口号，默认 22
+    - `ansible_ssh_user` : SSH 用户名
+    - `ansible_ssh_pass` : SSH 密码
+    - `ansible_ssh_private_key_file` : SSH 使用的私钥文件
+    - `ansible_become` : 允许提权
+    - `ansible_become_user` : 提权用户，等同于 ansible_sudo_user 或 ansible_su_user
+    - `ansible_become_pass` : 提权用户密码，等同于 ansible_sudo_pass 或 ansible_su_pass
