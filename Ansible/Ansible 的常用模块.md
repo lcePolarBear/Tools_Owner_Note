@@ -95,22 +95,22 @@ __收集系统信息 (setup)__
     ansible all -m setup -a 'filter=ansible_*_mb'
     ansible all -m setup -a 'filter=ansible_eth[0-2]'
     ```
-- 常用变量
-    - `ansible_all_ipv4_addresses` ：仅显示 ipv4 的信息 
-    - `ansible_devices` ：仅显示磁盘设备信息 
-    - `ansible_distribution` ：显示是什么系统，例 ：centos,suse 等 
-    - `ansible_distribution_major_version` ：显示是系统主版本 
-    - `ansible_distribution_version` ：仅显示系统版本 
-    - `ansible_machine` ：显示系统类型，例` ：32 位，还是 64 位 
-    - `ansible_eth0` ：仅显示 eth0 的信息 
-    - `ansible_hostname` ：仅显示主机名 
-    - `ansible_kernel` ：仅显示内核版本 
-    - `ansible_memtotal_mb` ：显示系统总内存 
-    - `ansible_memfree_mb` ：显示可用系统内存 
-    - `ansible_memory_mb` ：详细显示内存情况 
-    - `ansible_swaptotal_mb` ：显示总的 swap 内存 
-    - `ansible_swapfree_mb` ：显示 swap 内存的可用内存 
-    - `ansible_mounts` ：显示系统磁盘挂载情况 
-    - `ansible_processor` ：显示 cpu 个数(具体显示每个 cpu 的型号) 
-    - `ansible_processor_vcpus` ：显示 cpu 个数(只显示总的个数) 
-    - `ansible_python_version` ：显示 python 版本
+    - 常用变量
+        - `ansible_all_ipv4_addresses` ：仅显示 ipv4 的信息 
+        - `ansible_devices` ：仅显示磁盘设备信息 
+        - `ansible_distribution` ：显示是什么系统，例 ：centos,suse 等 
+        - `ansible_distribution_major_version` ：显示是系统主版本 
+        - `ansible_distribution_version` ：仅显示系统版本 
+        - `ansible_machine` ：显示系统类型，例` ：32 位，还是 64 位 
+        - `ansible_eth0` ：仅显示 eth0 的信息 
+        - `ansible_hostname` ：仅显示主机名 
+        - `ansible_kernel` ：仅显示内核版本 
+        - `ansible_memtotal_mb` ：显示系统总内存 
+        - `ansible_memfree_mb` ：显示可用系统内存 
+        - `ansible_memory_mb` ：详细显示内存情况 
+        - `ansible_swaptotal_mb` ：显示总的 swap 内存 
+        - `ansible_swapfree_mb` ：显示 swap 内存的可用内存 
+        - `ansible_mounts` ：显示系统磁盘挂载情况 
+        - `ansible_processor` ：显示 cpu 个数(具体显示每个 cpu 的型号) 
+        - `ansible_processor_vcpus` ：显示 cpu 个数(只显示总的个数) 
+        - `ansible_python_version` ：显示 python 版本
