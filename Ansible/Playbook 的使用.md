@@ -71,4 +71,19 @@ Playbook 文件结构
           shell: "echo {{var_name}}"
     ```
 - 主机和用户
-    - 
+    - sudo 提权执行
+        ```
+        - hosts: webservers
+          remote_user: chen
+          become: yes
+        ```
+    - 针对特定任务
+        ```
+        - hosts: webservices
+          tasks:
+            - service:
+                name: nginx
+                state: started
+              remote_user:chen
+              become: yes
+        ```
