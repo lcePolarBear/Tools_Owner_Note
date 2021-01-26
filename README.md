@@ -20,6 +20,7 @@ __Ansible__
 - [Ansible 的安装与配置](https://github.com/lcePolarBear/Ops_Automation_Note/blob/master/Ansible/Ansible%20%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE.md)
 - [Ansible ad-hoc 模式的使用](https://github.com/lcePolarBear/Ops_Automation_Note/blob/master/Ansible/Ansible%20ad-hoc%20%E6%A8%A1%E5%BC%8F%E7%9A%84%E4%BD%BF%E7%94%A8.md)
 - [Ansible 的常用模块](https://github.com/lcePolarBear/Ops_Automation_Note/blob/master/Ansible/Ansible%20%E7%9A%84%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97.md)
+- [Playbook 的使用]()
 - 最佳实践
     - [使用 Ansible 批量部署 node_exporter]()
 
