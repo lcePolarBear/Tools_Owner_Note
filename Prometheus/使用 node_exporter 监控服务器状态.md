@@ -56,12 +56,4 @@ __启用 node_exporter 接口 http 的认证__
     ```
 - Grafana 使用仪表盘 9276 来可视化
 
-__使用 Docker 的方式启动__
-```
-docker run -d \
-  --net="host" \
-  --pid="host" \
-  -v "/:/host:ro,rslave" \
-  quay.io/prometheus/node-exporter \
-  --path.rootfs /host
-````
+__使用[Ansible 部署 node_exporter]()__

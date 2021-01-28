@@ -1,0 +1,15 @@
+- hosts: esxi_node
+  gather_facts: no
+  tasks:
+  - name: 推送二进制文件
+    unarchive: src=node_exporter-1.0.1.linux-amd64.tar.gz dest=/usr/local
+  - name: 重命名
+    shell: |
+         cd /usr/local
+         if [ ! -d node_exporter ];then
+             mv node_exporter-1.0.1.linux-amd64 node_exporter
+         fi
+  - name: 拷贝systemd文件
+    copy: src=node_exporter.service dest=/usr/lib/systemd/system
+  - name: 启动服务
+    systemd: name=node_exporter state=started enabled=yes daemon_reload=yes
