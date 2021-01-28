@@ -1,0 +1,16 @@
+---
+# Nginx
+nginx_version: 1.15.3 
+http_port: 80
+server_name: wp.ctnrs.com
+
+# PHP
+php_version: 5.6.38
+
+# Wordpress 
+wp_version: 4.9.4
+db_host: 192.168.0.12
+db_port: 3306
+wp_db_name: wp
+wp_db_user: wp
+wp_db_password: MyNewPass4!

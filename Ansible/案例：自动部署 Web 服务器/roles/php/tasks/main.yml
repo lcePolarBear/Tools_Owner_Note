@@ -1,0 +1,40 @@
+---
+- name: Install php deps
+  yum: name={{ item }} state=present
+  with_items:
+    - gd-devel 
+    - libxml2-devel 
+    - libcurl-devel 
+    - libjpeg-devel 
+    - libpng-devel 
+
+- name: Copy php source pkg 
+  get_url: url=http://docs.php.net/distributions/php-{{ php_version }}.tar.gz dest=/tmp/nginx-{{ php_version }}.tar.gz
+  #copy: src=php-{{ php_version }}.tar.gz dest=/tmp
+
+- name: Install php
+  shell: cd /tmp && 
+         tar zxf php-{{ php_version }}.tar.gz && 
+         cd php-{{ php_version }} &&
+         ./configure --prefix=/usr/local/php --with-config-file-path=/usr/local/php/etc 
+         --with-mysql --with-mysqli --with-openssl --with-zlib --with-curl --with-gd \
+         --with-jpeg-dir --with-png-dir --with-iconv --enable-fpm --enable-zip --enable-mbstring && 
+         make -j 4 && make install
+
+- name: Copy php configuration file
+  copy: src=php.ini dest=/usr/local/php/etc/
+  notify: 
+    - reload systemd
+    - reload restart php-fpm 
+
+- name: Copy php-fpm configuration file
+  copy: src=php-fpm.conf dest=/usr/local/php/etc/ 
+  notify: 
+    - reload systemd
+    - reload restart php-fpm 
+
+- name: Copy php-fpm.service
+  copy: src=php-fpm.service dest=/usr/lib/systemd/system/
+
+- name: Start php-fpm
+  service: name=php-fpm state=started enabled=yes

@@ -1,0 +1,13 @@
+---
+- name: Download WordPress
+  get_url: url=https://cn.wordpress.org/wordpress-{{ wp_version }}-zh_CN.tar.gz dest=/tmp/wordpress-{{ wp_version }}-zh_CN.tar.gz
+  #copy: src=wordpress-{{ wp_version }}.tar.gz dest=/tmp
+
+- name: Extract archive
+  unarchive: src=/tmp/wordpress-{{ wp_version }}-zh_CN.tar.gz dest=/usr/local/nginx/html copy=no 
+
+- name: Copy WordPress config file
+  template: src=wp-config.php dest=/usr/local/nginx/html/wordpress
+
+- name: Change ownership of WordPress installation
+  file: path=/usr/local/nginx/html/wordpress owner=nobody group=nobody state=directory recurse=yes

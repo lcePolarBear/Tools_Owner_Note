@@ -1,0 +1,33 @@
+---
+- name: Copy nginx source pkg
+  get_url: url=http://nginx.org/download/nginx-{{ nginx_version }}.tar.gz dest=/tmp/nginx-{{ nginx_version }}.tar.gz
+  #copy: src=nginx-{{ nginx_version }}.tar.gz dest=/tmp
+
+- name: Install nginx
+  shell: cd /tmp &&
+         tar zxf nginx-{{ nginx_version }}.tar.gz &&
+         cd nginx-{{ nginx_version }} &&
+         ./configure --prefix=/usr/local/nginx --user=nobody --group=nobody 
+         --with-http_ssl_module --with-http_stub_status_module --with-stream=dynamic && 
+         make && make install
+
+- name: Mkdir /usr/local/nginx/conf/vhost
+  file: dest=/usr/local/nginx/conf/vhost state=directory
+
+- name: Copy nginx master configuration file
+  copy: src=nginx.conf dest=/usr/local/nginx/conf
+  notify: 
+    - reload systemd
+    - reload nginx
+
+- name: Copy nginx configuration for wordpress
+  template: src=wordpress.conf dest=/usr/local/nginx/conf/vhost/
+  notify:
+    - reload systemd
+    - reload nginx
+
+- name: Copy nginx systemctl service 
+  copy: src=nginx.service dest=/usr/lib/systemd/system/
+
+- name: Start service
+  service: name=nginx state=started enabled=yes
