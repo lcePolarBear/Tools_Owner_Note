@@ -12,18 +12,19 @@ __Ansible__
     - [jinja2 - Playbook 模板](https://github.com/lcePolarBear/Ops_Automation_Note/blob/master/Ansible/jinja2%20-%20Playbook%20%E6%A8%A1%E6%9D%BF.md)
     - [角色 - Roles](https://github.com/lcePolarBear/Ops_Automation_Note/blob/master/Ansible/%E8%A7%92%E8%89%B2%20-%20Roles.md)
 - __最佳实践__
-    - [自动部署 Web 服务器](https://github.com/lcePolarBear/Ops_Automation_Note/tree/master/Ansible/%E6%A1%88%E4%BE%8B%EF%BC%9A%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2%20Web%20%E6%9C%8D%E5%8A%A1%E5%99%A8)
-    - [批量部署 node_exporter]()
+    - [自动部署 Web 服务器](https://github.com/lcePolarBear/Ops_Automation_Note/tree/master/Ansible/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2%20Web%20%E6%9C%8D%E5%8A%A1%E5%99%A8)
+    - [批量部署 node_exporter](https://github.com/lcePolarBear/Ops_Automation_Note/tree/master/Ansible/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/%E6%89%B9%E9%87%8F%E9%83%A8%E7%BD%B2%20node_exporter)
 
-__Prometheus + Grafana 监控__
+__Prometheus 监控__
 - [安装 Prometheus](https://github.com/lcePolarBear/Ops_Automation_Note/blob/master/Prometheus/%E5%AE%89%E8%A3%85%20Prometheus.md)
 - [配置 Prometheus.yml](https://github.com/lcePolarBear/Ops_Automation_Note/blob/master/Prometheus/如何配置%20Prometheus.yml%20文件.md)
 - [使用 node_exporter 监控服务器状态](https://github.com/lcePolarBear/Ops_Automation_Note/blob/master/Prometheus/%E4%BD%BF%E7%94%A8%20node_exporter%20%E7%9B%91%E6%8E%A7%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%8A%B6%E6%80%81.md)
 - __Prometheus 自动化监控__
     - [Prometheus 服务发现](https://github.com/lcePolarBear/Ops_Automation_Note/blob/master/Prometheus/Prometheus%20%E6%9C%8D%E5%8A%A1%E5%8F%91%E7%8E%B0.md)
     - [使用 Prometheus 监控 kubernetes](https://github.com/lcePolarBear/Ops_Automation_Note/blob/master/Prometheus/%E4%BD%BF%E7%94%A8%20Prometheus%20%E7%9B%91%E6%8E%A7%20kubernetes.md)
-- [安装 Grafana](https://github.com/lcePolarBear/Ops_Automation_Note/blob/master/Prometheus/Grafana/%E5%AE%89%E8%A3%85%20Grafana.md)
-- [Grafana 接入 Pronetheus](https://github.com/lcePolarBear/Ops_Automation_Note/blob/master/Prometheus/Grafana/Grafana%20%E6%8E%A5%E5%85%A5%20Prometheus.md)
+- __Prometheus 监控可视化__
+    - [安装 Grafana](https://github.com/lcePolarBear/Ops_Automation_Note/blob/master/Prometheus/Grafana/%E5%AE%89%E8%A3%85%20Grafana.md)
+    - [Grafana 接入 Pronetheus](https://github.com/lcePolarBear/Ops_Automation_Note/blob/master/Prometheus/Grafana/Grafana%20%E6%8E%A5%E5%85%A5%20Prometheus.md)
 
 __ESXI__
 - [安装 EXSI 6.5 参考文档](https://i4t.com/2773.html)
