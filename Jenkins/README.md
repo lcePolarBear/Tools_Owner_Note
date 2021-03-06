@@ -23,7 +23,7 @@ __部署 jenkins__
     - 注意 Jenkins 地址和 Jenkins 通道都要配置， Jenkins 通道可能因为 bug ，目前只能以 ip:port 格式填入才生效
 3. 暂时不用配置 pod 模板
 4. pipeline 测试能否创建 jenkins-agent
-    ```json
+    ```
     podTemplate(label: 'jenkins-slave', cloud: 'kubernetes', containers: [
         containerTemplate(
             name: 'jnlp', 
@@ -63,7 +63,7 @@ __准备工作__
     ```
 
 __使用 pipeline 实施 CI__
-```json
+```
 podTemplate(label: 'jenkins-slave', cloud: 'kubernetes', containers: [
     containerTemplate(
         name: 'jnlp', /* jnlp 是必须的，用于对接 k8s 生成的 Pod */
@@ -119,7 +119,7 @@ kubectl create secret docker-registry registry-pull-secret --docker-username=use
 ```
 
 __使用 pipeline 实施 CD__
-```json
+```
 podTemplate(label: 'jenkins-slave', cloud: 'kubernetes', containers: [
     containerTemplate(
         name: 'jnlp', 

@@ -1,4 +1,7 @@
-# 此仓库专门用来记录运维中使用到的工具
+## 此仓库专门用来记录运维中使用到的工具
+---
+__Jenkins__
+- [基于 kubernetes 构建 Jenkins 持续集成平台](https://github.com/lcePolarBear/Ops_Automation_Note/tree/master/Jenkins)
 
 __Ansible__
 - [Ansible 的安装与配置](https://github.com/lcePolarBear/Ops_Automation_Note/blob/master/Ansible/Ansible%20%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE.md)
