@@ -146,3 +146,8 @@ podTemplate(label: 'jenkins-slave', cloud: 'kubernetes', containers: [
   }
 }
 ```
+
+### 将 pipeline 脚本与源代码一起版本管理
+__pipeline script from SCM__
+- 将 pipeline 脚本单独放在 Jenkinsfile 下与 git 一起版本控制
+- 流水线选择 _pipeline script from SCM_ 选择 git 地址并指定 config 文件
