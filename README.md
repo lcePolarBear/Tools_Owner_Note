@@ -44,3 +44,4 @@ __FRP__
 - [FRP 使用说明](https://github.com/fatedier/frp/blob/master/README_zh.md)
 - [使用 FRP 映射 Oracle 1521 端口](https://github.com/lcePolarBear/Ops_Automation_Note/blob/master/FRP/Oracle%201521端口映映射.md)
 - [安全地暴露内网服务](https://gofrp.org/docs/examples/stcp/)
+- [frp下反向代理实现https协议](https://www.cnblogs.com/shook/p/12790532.html)
