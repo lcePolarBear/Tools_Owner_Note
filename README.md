@@ -39,6 +39,7 @@ __ESXI__
 
 __Git__
 - [Git 基础指令](https://github.com/lcePolarBear/Ops_Automation_Note/blob/master/Git/Git%20%E5%9F%BA%E7%A1%80%E6%8C%87%E4%BB%A4.md)
+- [github 配置 SSL 访问私有仓库](https://blog.csdn.net/weixin_44187730/article/details/104039507)
 
 __FRP__
 - [FRP 使用说明](https://github.com/fatedier/frp/blob/master/README_zh.md)
