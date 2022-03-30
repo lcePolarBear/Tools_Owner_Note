@@ -51,7 +51,7 @@ path.logs: /opt/logstash/logs
 
 ### Logstash 配置文件
 
-```json
+```bash
 # cat /opt/logstash/conf.d/test.conf
 
 input{
@@ -71,7 +71,7 @@ output{
 
 ### File
 
-```json
+```bash
 input {
     file {
         path => "/var/log/*.log"        # 日志文件路径，可使用通配符
@@ -94,7 +94,7 @@ input {
 
 接收来自Beats数据采集器发来的数据，例如Filebeat
 
-```json
+```bash
 input {
     beats {
         host => "0.0.0.0"
@@ -111,7 +111,7 @@ input {
 
 接收一个json数据，将其展开为Logstash事件中的数据结构，放到事件顶层
 
-```json
+```bash
 filter{
     json {
         source => "message"     # 指定要解析的字段，一般是原始消息message字段
@@ -125,7 +125,7 @@ filter{
 
 接收一个键值数据，按照指定分隔符解析为 Logstash 事件中的数据结构，放到事件顶层
 
-```json
+```bash
 filter{
     kv {
         field_split => "&?"     # 指定键值分隔符，可用于解析 URL 中的参数
@@ -145,7 +145,7 @@ Logstash内置的正则匹配模式，在安装目录下可以看到
 cat /opt/logstash/vendor/bundle/jruby/2.5.0/gems/logstash-patterns-core-4.1.2/patterns/grok-patterns
 ```
 
-```json
+```bash
 filter{
     grok {
         match => {
@@ -205,7 +205,7 @@ filter{
 
 ### file
 
-```json
+```bash
 output{
     file {
         path => "/tmp/test.log"
@@ -215,7 +215,7 @@ output{
 
 ### Elasticsearch
 
-```json
+```bash
 output{
     elasticsearch {
         hosts => ["192.168.2.211:9200","192.168.2.212:9200"]
