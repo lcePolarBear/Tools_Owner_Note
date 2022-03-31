@@ -49,7 +49,7 @@ log.level: info
 path.logs: /opt/logstash/logs
 ```
 
-### Logstash 配置文件
+## Logstash 配置文件
 
 ```bash
 # cat /opt/logstash/conf.d/test.conf
@@ -65,11 +65,9 @@ output{
 }
 ```
 
-## 输入插件
+### 输入插件
 
-### Stdin
-
-### File
+**File**
 
 ```bash
 input {
@@ -88,9 +86,7 @@ input {
 }
 ```
 
-### Redis
-
-### Beats
+**Beats**
 
 接收来自Beats数据采集器发来的数据，例如Filebeat
 
@@ -103,11 +99,11 @@ input {
 }
 ```
 
-## 过滤插件
+### 过滤插件
 
 过滤阶段：将日志格式化处理
 
-### JSON
+**JSON**
 
 接收一个json数据，将其展开为Logstash事件中的数据结构，放到事件顶层
 
@@ -121,7 +117,7 @@ filter{
 
 模拟数据：`{"remote_addr": "192.168.1.10","url":"/index","status":"200"}`
 
-### KV
+**KV**
 
 接收一个键值数据，按照指定分隔符解析为 Logstash 事件中的数据结构，放到事件顶层
 
@@ -135,7 +131,7 @@ filter{
 
 模拟数据：`www.ctnrs.com?id=1&name=aliang&age=30`
 
-### Grok
+**Grok**
 
 如果采集的日志格式是非结构化的，可以写正则表达式提取，grok 是正则表达式支持的实现
 
@@ -199,11 +195,32 @@ filter{
 }
 ```
 
-### GeoIP
+**GeoIP**
 
-## 输出插件
+根据 Maxmind GeoLite2 数据库中的数据添加有关 IP 地址位置信息
 
-### file
+```bash
+filter{
+    grok {
+        patterns_dir =>"/opt/patterns"
+        match => [
+            "message", "%{IP:client} %{WORD:method} %{URIPATHPARAM:request} %{NUMBER:bytes} %{NUMBER:duration} %{CID:cid}",
+            "message", "%{IP:client} %{WORD:method} %{URIPATHPARAM:request} %{NUMBER:bytes} %{NUMBER:duration} %{EID:cid}"
+        ]
+    }
+    geoip {
+        source => "client"      # 指定要解析的 IP 字段
+        target => "geoip"       # 结果保存到 geoip 字段
+        database => "/opt/GeoLite2-City/GeoLite2-City.mmdb"     # GeoLite2 数据库文件的路径
+        fields => ["city_name", "country_code2", "country_name","region_name"]      # 保留解析的指定字段
+
+    }
+}
+```
+
+### 输出插件
+
+**file**
 
 ```bash
 output{
@@ -213,13 +230,61 @@ output{
 }
 ```
 
-### Elasticsearch
+**Elasticsearch**
 
 ```bash
 output{
     elasticsearch {
         hosts => ["192.168.2.211:9200","192.168.2.212:9200"]
         index => "microservice-product-%{+YYYY.MM.dd}"
+    }
+}
+```
+
+## 案例
+
+### 根据日志来源字段写入不同索引名称
+
+```bash
+input{
+    file {
+        path => "/var/log/test/test.log"
+        add_field => {
+            "log_type" => "test"
+        }
+    }
+    file {
+        path => "/var/log/test/prod.log"
+        add_field => {
+            "log_type" => "prod"
+        }
+    }
+}
+filter {
+    if [log_type] in ["test","dev"] {   # 使用 if 判断 log_type 的值，起到分类
+        mutate {        # 向索引添加字段
+            add_field => {
+                "[@metadata][target_index]" => "test-%{+YYYY.MM}"
+            }
+        }
+    } else if ["prod"] {
+        mutate {
+            add_field => {
+                "[@metadata][target_index]" => "prod-%{+YYYY.MM.DD}"
+            }
+        }
+    } else {
+        mutate {
+            add_field => {
+                "[@metadata][target_index]" => "prod-%{+YYYY}"
+            }
+        }
+    }
+}
+output{
+    elasticsearch {
+        hosts => ["192.168.2.211:9200","192.168.2.212:9200"]
+        index => "%{[@metadata][target_index]}"
     }
 }
 ```
