@@ -1,0 +1,55 @@
+- hosts: hk
+  gather_facts: no
+  tasks:
+  - name: 部署 openvpn 依赖
+    yum:
+      name: pkcs11-helper
+      state: latest
+  - name: 推送 openvpn 文件
+    copy: src=openvpn dest=/usr/sbin/ mode=755
+  - name: 推送 openvpn 配置
+    copy: src=aliyun-new-vpn.ovpn dest=/root/
+  - name: 推送用户密码文件 up.ini
+    copy: src=up.ini dest=/root/
+  - name: 推送存活检测脚本
+    copy: src=ping_VpnRoute.sh dest=/etc/init.d/
+  - name: 拷贝 systemd 文件
+    copy: src=openvpn.service dest=/usr/lib/systemd/system/
+  - name: 启动服务
+    systemd: name=openvpn state=started enabled=yes daemon_reload=yes
+  - name: 启动存活检测
+    shell: crontab -l | { cat; echo "*/5 * * * * bash /etc/init.d/ping_VpnRoute.sh"; } | crontab -
+  - name: 添加vpn路由规则1
+    shell: crontab -l | { cat; echo "*/1 * * * * /usr/sbin/route add -net 100.100.142.0 netmask 255.255.255.0 gw 10.8.0.1"; } | crontab -
+  - name: 添加vpn路由规则2
+    shell: crontab -l | { cat; echo "*/1 * * * * /usr/sbin/route del -net 100.64.0.0 netmask 255.192.0.0"; } | crontab -
+  - name: 添加vpn路由规则3
+    shell: crontab -l | { cat; echo "*/1 * * * * /usr/sbin/route add -net 100.103.8.0 netmask 255.255.255.0 gw 10.8.0.1"; } | crontab -
+
+```ping_VpnRoute.sh
+#! /bin/bash
+route del -net 100.64.0.0 netmask 255.192.0.0
+ping -c 1 -W1 -w 0.1 10.8.0.1 &> /dev/null
+
+if [ $? -eq 1 ]
+then
+echo -e "NO restart openvpn"
+systemctl restart openvpn
+fi
+```
+
+```openvpn.service
+[Unit]
+Description=OpenVPN
+
+[Service]
+Type=notify
+ExecStart=/usr/sbin/openvpn --daemon --cd /root/ --config /root/aliyun-new-vpn.ovpn --log-append /var/log/openvpn.log --auth-user-pass /root/up.ini
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+Restart=always
+RemainAfterExit=no
+
+[Install]
+WantedBy=multi-user.target
+```
